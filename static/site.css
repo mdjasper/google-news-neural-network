@@ -61,17 +61,10 @@ header .page-width{
 	justify-content: flex-end;
 }
 
-.nav li{
-	position: relative;
-	width:70px;
-}
-
 .nav a{
-	position: absolute;
 	display:block;
-	top:50%;
-	transform: translateY(-50%);
 	text-decoration: none;
+	margin-left:1em;
 }
 
 .hero{

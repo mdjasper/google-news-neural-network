@@ -90,7 +90,13 @@ header .page-width{
 .hero{
 	background:#c0392b;
 	color:#ecf0f1;
-	padding:50px 0;
+	padding:20px 0;
+}
+
+@media screen and (min-width:650px){
+	.hero{
+		padding:50px 0;
+	}
 }
 
 .hero .page-width{
@@ -118,7 +124,13 @@ header .page-width{
 }
 
 .hero__heading{
+	font-size: 30px;
+}
+
+@media screen and (min-width: 650px){
+.hero__heading{
 	font-size: 50px;
+}	
 }
 
 .project{

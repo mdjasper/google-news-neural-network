@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono|Open+Sans|Slabo+13px);
 
+*{box-sizing:border-box;}
+
 html, body{
 	margin:0;
 	padding:0;
@@ -50,8 +52,26 @@ section{
 
 header .page-width{
 	display:flex;
+	flex-direction: column;
 }
 
+@media screen and (min-width:650px){
+	header .page-width{
+		flex-direction: row;
+	}
+}
+.nav{
+	flex-direction:column;
+	margin:0;
+}
+@media screen and (min-width:650px){
+	.nav{
+		flex-direction: row;
+	}
+	.nav a{
+		margin-left:1em;
+	}
+}
 .nav{
 	flex:1;
 	display: flex;
@@ -64,7 +84,7 @@ header .page-width{
 .nav a{
 	display:block;
 	text-decoration: none;
-	margin-left:1em;
+	
 }
 
 .hero{
@@ -82,8 +102,16 @@ header .page-width{
 	flex:2;
 }
 
+
 .hero__image{
 	flex:1;
+	display: none;
+
+}
+@media screen and (min-width:650px){
+.hero__image{
+	display:block;
+}
 }
 .hero img{
 	width: 100%;
@@ -120,13 +148,18 @@ header .page-width{
 }
 
 figure{
-	width:55%;
+	width:100%;
 	margin:0 auto;
 	padding:0;
 	background:#ecf0f1;
 	color: #2c3e50;
 	padding:1em;
 	box-shadow: 10px 10px 0 #445
+}
+@media screen and (min-width:650px){
+figure{
+	width:55%;
+}
 }
 .figure__title{
 	margin:0 0 10px 0;

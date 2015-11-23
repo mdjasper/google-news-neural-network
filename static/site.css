@@ -73,9 +73,24 @@ header .page-width{
 	padding:50px 0;
 }
 
+.hero .page-width{
+	flex-direction: row;
+	display:flex;
+}
+
+.hero__text{
+	flex:2;
+}
+
+.hero__image{
+	flex:1;
+}
+.hero img{
+	width: 100%;
+}
+
 .hero__heading{
-	font-size: 60px;
-	width:50%;
+	font-size: 50px;
 }
 
 .project{

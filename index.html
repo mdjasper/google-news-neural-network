@@ -60,7 +60,7 @@
 		<h3 class="figure__title">Prediction distribution</h3>
 		<img src="images/distribution.png" alt="prediction distribution showing 80% accuracy"/>
 		<figcaption>
-			Blue series represents negative predictions, centered around 0.1. Red series represents positive predictions centered around 1.
+			<span class="blue">Blue</span> series represents real negative outcomes, with the predictions centered around 0.1 (negative prediction). <span class="red">Red</span> series represents real positive outcomes, with the predictions centered around 1 (positive prediction).
 		</figcaption>	
 		</figure>
 		
@@ -70,7 +70,7 @@
 	<div class="page-width">
 		<h2 class="section__title">Technology Used</h2>
 		
-		<p><a href="https://nodejs.org/en/">Node.js</a> is used to run a web-scraper with asynchronous web requests to fetch the news data from Google News and save it to Firebase (database). It is also used to extract features from the corpus, and create a Bag-of-Words data-set based on the features.</p>
+		<p><a href="https://nodejs.org/en/">Node.js</a> is used to run a web-scraper with asynchronous web requests to fetch the news data from <a href="http://news.google.com/">Google News</a> and save it to <a href="https://www.firebase.com/">Firebase</a> (Cloud Database). It is also used to extract features from the corpus, and create a Bag-of-Words data-set based on the features.</p>
 		
 		<p><a href="https://github.com/NaturalNode/natural">Natural</a> is a Natural Language Processing toolkit for Node.js. It is used to tokenize and stem the corpus.</p>
 		

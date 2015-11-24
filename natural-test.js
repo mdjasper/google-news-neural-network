@@ -1,5 +1,5 @@
 //import data and library
-var data = require('./export4.js'),
+var data = require('./export5.js'),
 	changeData = require('./clean-change-data.js'),
 	natural = require('natural'),
 	tokenizer = new natural.WordTokenizer(),
@@ -14,10 +14,12 @@ console.time('Combine Strings')
 //combine all data for each row into one string
 var combined = '';
 for(d in data){
-	var headlines = data[d].headlines.join();
-	var bodies = data[d].bodies.join();
-	var str = [].concat(headlines, bodies).toString().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").toLowerCase();
-	combined += str;
+
+		var headlines = data[d].headlines.join();
+		var bodies = data[d].bodies.join();
+		var str = [].concat(headlines, bodies).toString().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").toLowerCase();
+		combined += str;
+
 }
 console.timeEnd('Combine Strings');
 

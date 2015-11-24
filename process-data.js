@@ -1,5 +1,5 @@
 //import data and library
-var data = require('./export5.js'),
+var data = require('./data-exports/export5.js'),
 	changeData = require('./clean-change-data.js'),
 	natural = require('natural'),
 	tokenizer = new natural.WordTokenizer(),
@@ -78,8 +78,6 @@ filtered.forEach(function(d){
 	dict.push(d.key);
 });
 console.timeEnd('Select Tokens');
-
-console.log(dict);
 
 console.time('Build Training Data');
 var trainingData = [];

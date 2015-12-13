@@ -13,13 +13,16 @@ with open('training.js') as data_file:
 
 training = []
 testing = []
+length = len(data)
+midPoint = length / 1.2
+index = 0
 
 for row in data:
-	rand = random.uniform(0, 1)
-	if rand > 0.50:
+	if index < midPoint:
 		training.append([row['input'], [row['output']['direction']]])
 	else:
 		testing.append([row['input'], [row['output']['direction']]])
+	index += 1
 
 features = len(training[0][0])
 
@@ -37,7 +40,6 @@ for input, target in testing:
 
 
 hiddenLayers = features / 3
-
 
 #241 inputs, three hidden and a single output neuron
 net = buildNetwork(features, hiddenLayers, 1, bias=True)

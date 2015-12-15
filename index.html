@@ -7,31 +7,39 @@
 </head>
 <body>
 <header>
-<div class="page-width">
-	<h2 class="page-title">News &amp; Neural Networks</h2>
-	<ul class="nav">
-		<li><a href="/">Home</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="https://github.com/mdjasper/google-news-neural-network/tree/master">GitHub Source</a></li>
-	</ul>
+	<div class="page-width">
+		<h2 class="page-title">News &amp; Neural Networks</h2>
+		<ul class="nav">
+			<li><a href="/">Home</a></li>
+			<li><a href="/paper">Paper (pdf)</a></li>
+			<li><a href="https://github.com/mdjasper/google-news-neural-network/tree/master">GitHub Source</a></li>
+		</ul>
 	</div>
 </header>
 <main>
 	<section class="hero">
-	<div class="page-width">
-	<div class="hero__text">
-		<h1 class="hero__heading">Using historical news and stock data to predict future changes.</h1></div>
-		<div class="hero__image">
-		<img src="images/hero.png">
+		<div class="page-width">
+			<div class="hero__text">
+				<h1 class="hero__heading">Using historical news and stock data to predict future changes.</h1></div>
+			<div class="hero__image">
+				<img src="images/hero.png">
+			</div>
 		</div>
+	</section>
+	<section class="what">
+		<div class="page-width">
+			<h2 class="section__title">What and Why</h2>
+			<p>The main research question this project seeks to answer is: With text data from Google News, can a system using Natural Language Processing and Neural Networks predict the future changes in a stock price?</p>
+			<h2>Results TL;DR</h2>
+			<p>Depending on method of training and testing data selection, a model can be created with up to either 76% or 82% accuracy in predicting future stock price changes. There are, however, practical limitations to the model which are addressed further below.</p>
 		</div>
 	</section>
 	<section class="about">
-	<div class="page-width">
-		<h2 class="section__title">How this project works</h2>
-		<p>A dataset was build containing news headlines and summaries of the <a href="http://portfolios.morningstar.com/fund/holdings?t=SPY">top 10 holdings of the S&amp;P 500</a> ticker symbols from Google News ranging from 1 Jan 2015 to 31 Oct 2015, as well as stock price changes for these symbols and dates. This dataset contains nearly 2700 day/symbol records &mdash; or 567,912 words.</p>
-		<div class="code">
-		<h3 class="code__title">Corpus Sample</h3>
+		<div class="page-width">
+			<h2 class="section__title">How this project works</h2>
+			<p>A dataset was build containing news headlines and summaries of the <a href="http://portfolios.morningstar.com/fund/holdings?t=SPY">top 10 holdings of the S&amp;P 500</a> ticker symbols from Google News ranging from 1 Jan 2015 to 31 Oct 2015, as well as stock price changes for these symbols and dates. This dataset contains nearly 2700 day/symbol records &mdash; or 567,912 words.</p>
+			<div class="code">
+				<h3 class="code__title">Corpus Sample</h3>
 		<pre>
 "-K-LDX-ahbYGeGA8QIID" : {
 	"bodies" : [ "No companies have done this better over the past decade than JPMorgan Chase (NYSE:JPM) and Wells Fargo (NYSE:WFC). The chart below illustrates this ...", ...],
@@ -39,50 +47,59 @@
 	"headlines" : [ "Buy Bank Stocks Like a Boss", ...],
 	"symbol" : "WFC"
 }</pre>
-		</div>
-		<p>Using a <a href="http://www.vikparuchuri.com/blog/natural-language-processing-tutorial/#bag-of-words-model">Bag-of-words</a> NLP model, features were extracted from the data, and a data-set created of text features and price changes for each stock &amp; date.</p>
-		<p>A neural network was created using <a href="http://pybrain.org/docs/index.html">PyBrain</a> and trained on a sample from this data set.</p>
-		<div class="code">
-			<h3 class="code__title">Vectorized Data Sample</h3>
+			</div>
+			<p>Using a <a href="http://www.vikparuchuri.com/blog/natural-language-processing-tutorial/#bag-of-words-model">Bag-of-words</a> NLP model, features were extracted from the data, and a data-set created of text features and price changes for each stock &amp; date.</p>
+			<p>A neural network was created using <a href="http://pybrain.org/docs/index.html">PyBrain</a> and trained on a sample from this data set.</p>
+			<div class="code">
+				<h3 class="code__title">Vectorized Data Sample</h3>
 			<pre>
 {
 	"input":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,1,1,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,1,0,0,1,1,0,0,1,1,0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,1,0,1,1,1],
 	"output":{"direction":0}
 }</pre>
-		</div>
-		<p>Non-training data is then used to test the performance of the neural network.</p>
+			</div>
+			<p>Non-training data is then used to test the performance of the neural network.</p>
 		</div>
 	</section>
 	<section class="results">
 		<div class="page-width">
 			<h2 class="section__title">Results</h2>
-		<p>Using the remaining data (not trained), the neural network has been tested and achieved results up to 82% accuracy.</p>
-		<figure>
-		<h3 class="figure__title">Prediction distribution</h3>
-		<img src="images/distribution1.png" alt="prediction distribution showing 82% accuracy"/>
-		<figcaption>
-			<span class="blue">Blue</span> series represents historical negative changes, with the predictions centered around 0.2 (negative prediction). <span class="red">Red</span> series represents historical positive changes, with the predictions centered around 0.9 (positive prediction).
-		</figcaption>	
-		</figure>
-
-		<figure>
-			<h3 class="figure__title">False positives and negatives</h3>
-			<img src="images/prediction-bars.png" alt="prediction distribution showing 82% accuracy"/>
+			<p>Using the remaining data (not trained), the neural network has been tested and achieved results up to 82% accuracy.</p>
+			<figure>
+				<h3 class="figure__title">Prediction distribution</h3>
+				<img src="images/distribution1.png" alt="prediction distribution showing 82% accuracy"/>
+				<figcaption>
+					<span class="blue">Blue</span> series represents historical negative changes, with the predictions centered around 0.2 (negative prediction). <span class="red">Red</span> series represents historical positive changes, with the predictions centered around 0.9 (positive prediction).
+				</figcaption>
 			</figure>
-		
+
+			<figure>
+				<h3 class="figure__title">False positives and negatives</h3>
+				<img src="images/prediction-bars.png" alt="prediction distribution showing 82% accuracy"/>
+			</figure>
+			<h2 class="section__title">Model Accuracy</h2>
+<p>Model Accuracy is measured simply by dividing the total number of correct prediction by the number of tests run. The two methods of grouping test and training data have different accuracy distributions: 76% or 82% at most for both methods.</p>
+			<figure>
+				<h3 class="figure__title">Model Distributions</h3>
+				<img src="images/model-accuracy-distributions.png" alt="distribution of accuracy of two selection methods">
+				<figcaption>
+					<span class="blue">Blue</span> series represents the accuracy of Method 1 of data selection over 100 trials (mid-point selection). <span class="red">Red</span> series represents the accuracy of Method 2 of data selection over 100 trials (random selection).
+				</figcaption>
+			</figure>
+
 		</div>
 	</section>
 	<section class="technology">
-	<div class="page-width">
-		<h2 class="section__title">Technology Used</h2>
-		
-		<p><a href="https://nodejs.org/en/">Node.js</a> is used to run a web-scraper with asynchronous web requests to fetch the news data from <a href="http://news.google.com/">Google News</a> and save it to <a href="https://www.firebase.com/">Firebase</a> (Cloud Database). It is also used to extract features from the corpus, and create a Bag-of-Words data-set based on the features.</p>
-		
-		<p><a href="https://github.com/NaturalNode/natural">Natural</a> is a Natural Language Processing toolkit for Node.js. It is used to tokenize and stem the corpus.</p>
-		
-		<p><a href="https://www.python.org/">Python</a> is used to create and train a neural network model using and random sample of < 50% of the data-set.</p>
-		
-		<p><a href="http://pybrain.org/">PyBrain</a> is a Machine Learning framework that is used to create a train the prediction neural network</p>
+		<div class="page-width">
+			<h2 class="section__title">Technology Used</h2>
+
+			<p><a href="https://nodejs.org/en/">Node.js</a> is used to run a web-scraper with asynchronous web requests to fetch the news data from <a href="http://news.google.com/">Google News</a> and save it to <a href="https://www.firebase.com/">Firebase</a> (Cloud Database). It is also used to extract features from the corpus, and create a Bag-of-Words data-set based on the features.</p>
+
+			<p><a href="https://github.com/NaturalNode/natural">Natural</a> is a Natural Language Processing toolkit for Node.js. It is used to tokenize and stem the corpus.</p>
+
+			<p><a href="https://www.python.org/">Python</a> is used to create and train a neural network model using and random sample of < 50% of the data-set.</p>
+
+			<p><a href="http://pybrain.org/">PyBrain</a> is a Machine Learning framework that is used to create a train the prediction neural network</p>
 		</div>
 	</section>
 	<section class="project">
@@ -90,18 +107,18 @@
 			<h2 class="section__title">Project Information</h2>
 			<p>This project was created by <a href="http://www.mikedoesweb.com">Michael Jasper</a> as course-work for CS 6900 at Utah State University.</p>
 			<p>This page was last updated on 23 Nov 2015.</p>
-		
+
 		</div>
 	</section>
 </main>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-6431083-22', 'auto');
-  ga('send', 'pageview');
+	ga('create', 'UA-6431083-22', 'auto');
+	ga('send', 'pageview');
 </script>
 </body>
 </html>

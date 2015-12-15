@@ -18,11 +18,11 @@ midPoint = length / 1.2
 index = 0
 
 for row in data:
-	if index < midPoint:
+	rand = random.uniform(0, 1)
+	if rand > 0.70:
 		training.append([row['input'], [row['output']['direction']]])
 	else:
 		testing.append([row['input'], [row['output']['direction']]])
-	index += 1
 
 features = len(training[0][0])
 
@@ -60,18 +60,18 @@ for input, output in training:
 		correct += 1
 	total += 1
 
-	print output[0], ',', guess[0]
+	#print output[0], ',', guess[0]
 
 accuracy = correct/float(total)
 
-print "features: ", features
-print "total: ", total
-print "correct: ", correct
+#print "features: ", features
+#print "total: ", total
+#print "correct: ", correct
 print "accuracy: ", accuracy
 
 
 #save network for future use
 
-filename = 'networks/' + str(round(accuracy,3)) + '--' + datetime.now().strftime('%Y-%m-%d-%H-%M-%S') + '.xml'
+filename = 'networks/1/' + str(round(accuracy,3)) + '--' + datetime.now().strftime('%Y-%m-%d-%H-%M-%S') + '.xml'
 
 NetworkWriter.writeToFile(net, filename)

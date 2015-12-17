@@ -17,6 +17,24 @@ length = len(data)
 midPoint = length / 1.2
 index = 0
 
+
+#midpoint selection
+
+
+# length = len(data)
+# midPoint = length / 1.2
+# index = 0
+#
+# for row in data:
+#	if index < midPoint:
+# 		training.append([row['input'], [row['output']['direction']]])
+# 	else:
+# 		testing.append([row['input'], [row['output']['direction']]])
+#	index += 1
+
+
+#random selection
+
 for row in data:
 	rand = random.uniform(0, 1)
 	if rand > 0.70:

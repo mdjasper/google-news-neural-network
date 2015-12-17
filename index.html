@@ -79,6 +79,9 @@
 			</figure>
 			<h2 class="section__title">Model Accuracy</h2>
 <p>Model Accuracy is measured simply by dividing the total number of correct prediction by the number of tests run. The two methods of grouping test and training data have different accuracy distributions: 76% or 82% at most for both methods.</p>
+			<h3>Train &amp; Test data selection</h3>
+			<p>There were two methods of dividing the dataset into training and testing data. Method 1 is to iterate through the data set, and to randomly assign data points to testing or training groups. This method created models with a accuracy in the 60-70% range.</p>
+			<p> Method 2 is split the data at a mid-point (or by a specific date), and group data before to the point into training and data after that point into testing. This method created models with accuracy in the 70-80% range. Although this method achieved higher accuracy on test data, Method 1 is a more accurate simulate of how the model would be used predicting future stock prices, and is therefore more reliable.</p></p>
 			<figure>
 				<h3 class="figure__title">Model Distributions</h3>
 				<img src="images/model-accuracy-distributions.png" alt="distribution of accuracy of two selection methods">

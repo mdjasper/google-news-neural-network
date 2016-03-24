@@ -21,26 +21,17 @@ index = 0
 #midpoint selection
 
 
-# length = len(data)
-# midPoint = length / 1.2
-# index = 0
-#
-# for row in data:
-#	if index < midPoint:
-# 		training.append([row['input'], [row['output']['direction']]])
-# 	else:
-# 		testing.append([row['input'], [row['output']['direction']]])
-#	index += 1
-
-
-#random selection
+length = len(data)
+midPoint = length / 1.2
+index = 0
 
 for row in data:
-	rand = random.uniform(0, 1)
-	if rand > 0.70:
+	if index < midPoint:
 		training.append([row['input'], [row['output']['direction']]])
 	else:
 		testing.append([row['input'], [row['output']['direction']]])
+	index += 1
+
 
 features = len(training[0][0])
 
@@ -72,7 +63,7 @@ trainer.trainUntilConvergence(trainingData=trainingDataSet, maxEpochs=20)
 total = 0
 correct = 0
 
-for input, output in training:
+for input, output in testing:
 	guess = net.activate(input)
 	if output[0] == round(guess):
 		correct += 1

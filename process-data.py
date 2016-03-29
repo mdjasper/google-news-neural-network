@@ -35,16 +35,17 @@ with open('./sentiment-dictionary.tsv') as tsv:
 #
 
 punctuation = set(string.punctuation)
+punctuation.update(['1','2','3','4','5','6','7','8','9','0'])
 
 for row in data:
 	row = data[row]
 
 	#join text into one string
-	text = ' '.join(row['bodies']) + ' ' + ' '.join(row['headlines']).lower()
+	text = ' '.join(row['bodies']).lower() + ' ' + ' '.join(row['headlines']).lower()
 	#split words into array and remove stop words
-	text = ' '.join(token for token in text.split() if token.lower() not in stopWords)
+	text = ' '.join(token for token in text.split() if token not in stopWords)
 	#remove punctuation
-	text = ''.join(token for token in text if token not in string.punctuation)
+	text = ''.join(token for token in text if token not in punctuation)
 
 
 
